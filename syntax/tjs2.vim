@@ -72,10 +72,10 @@ syntax region  tjs2StringAtS        start=+@'+ end=+'+ contains=tjs2SpecialChar,
 syntax match   tjs2OctetNumber      contained "\<\x\x\>"
 syntax region  tjs2Octet            start="<%" end="%>" contains=tjs2OctetNumber
 
-syntax match   tjs2Number           "\<\(0[0-7]*\|0[xX]\x\+\|0[bB][0-1]\+\)\(p\d\+\)\=\>"
-syntax match   tjs2Number           "\<\d\+\>"
+syntax match   tjs2Number           "-\=\<\d\+\>"
 syntax match   tjs2Number           "\(\<\d\+\.\d\+\|\.\d\+\|\d\+\)\([eE][-+]\=\d\+\)\="
-syntax match   tjs2Number           "\<\(0[0-7]*\|0[xX]\x\+\.\x+\|0[bB][0-1]\+\.[0-1]\+\)\(p\d\+\)\=\>"
+syntax match   tjs2Number           "\<\(0[0-7]\+\|0[xX]\x\+\|0[bB][0-1]\+\)\(p\d\+\)\=\>"
+syntax match   tjs2Number           "\<\(0[0-7]\+\|0[xX]\x\+\.\x+\|0[bB][0-1]\+\.[0-1]\+\)\(p\d\+\)\=\>"
 
 syntax case match
 syntax region  tjs2RegExp           start=+/\(\*\|/\)\@!+ skip=+\\\\\|\\/+ end=+/[gil]\{,3}+
