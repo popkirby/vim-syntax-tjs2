@@ -3,11 +3,6 @@
 " Maintainer: popkirby <popkirby@gmail.com>
 " Last Change: 2012 Mar 5
 " Remark: Included by kag3.vim
-" Changes: First submission.
-"
-" TODO:
-"  - Add Dictionaly syntax
-
 
 if !exists("main_syntax")
   if version < 600
@@ -97,6 +92,10 @@ syntax match   tjs2ParensErrA       contained "\]"
 syntax match   tjs2ParensErrB       contained ")"
 syntax match   tjs2ParensErrC       contained "}"
 
+" PreProcessors
+syntax match   tjs2PreProc          "@set"
+syntax match   tjs2PreProc          "@if\|@endif"
+
 
 if main_syntax == "tjs2"
   syntax sync clear
@@ -121,6 +120,7 @@ if version >= 508 || !exists("did_tjs2_syn_inits")
   HiLink tjs2Braces             Function
   HiLink tjs2Parens             Operator
 
+  HiLink tjs2PreProc            PreProc
   HiLink tjs2Function           Function
   HiLink tjs2Conditional        Conditional
   HiLink tjs2Repeat             Repeat
