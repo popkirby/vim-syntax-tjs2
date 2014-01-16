@@ -83,15 +83,6 @@ syntax match   tjs2LogicSymbols     "\(&&\)\|\(||\)"
 
 syntax cluster tjs2Top              add=tjs2EndColons
 
-syntax region  tjs2Bracket          matchgroup=tjs2Bracket      transparent keepend start="\[\|%\["  end="\]" contains=@tjs2Top,tjs2Braces,tjs2Parens,tjs2OpSymbols,tjs2LogicSymbols,tjs2Bracket,tjs2Paren,tjs2Block,tjs2ParensErrB,tjs2ParensErrC
-syntax region  tjs2Paren            matchgroup=tjs2Paren        transparent keepend start="("        end=")"  contains=@tjs2Top,tjs2Braces,tjs2Parens,tjs2OpSymbols,tjs2LogicSymbols,tjs2Bracket,tjs2Paren,tjs2Block,tjs2ParensErrA,tjs2ParensErrC
-syntax region  tjs2Block            matchgroup=tjs2Block        transparent keepend start="{"        end="}"  contains=@tjs2Top,tjs2Braces,tjs2Parens,tjs2OpSymbols,tjs2LogicSymbols,tjs2Bracket,tjs2Paren,tjs2Block,tjs2ParensErrA,tjs2ParensErrB
-
-syntax match   tjs2ParensError      ")\|}\|\]"
-syntax match   tjs2ParensErrA       contained "\]"
-syntax match   tjs2ParensErrB       contained ")"
-syntax match   tjs2ParensErrC       contained "}"
-
 " PreProcessors
 syntax match   tjs2PreProc          "@set"
 syntax match   tjs2PreProc          "@if\|@endif"
@@ -99,8 +90,7 @@ syntax match   tjs2PreProc          "@if\|@endif"
 
 if main_syntax == "tjs2"
   syntax sync clear
-"  syntax sync ccomment tjs2Comment minlines=200
-  syntax sync match tjs2Highlight grouphere tjs2Block /{/
+  syntax sync ccomment tjs2Comment minlines=200
 endif
 
 syntax keyword tjs2Function         function
