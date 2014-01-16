@@ -18,12 +18,6 @@ if !exists("main_syntax")
   let main_syntax='tjs2'
 endif
 
-if version < 508
-  command! -nargs=+ TJS2HiLink hi link <args>
-else
-  command! -nargs=+ TJS2HiLink hi def link <args>
-endif
-
 syntax case match
 
 " keyword definitions
@@ -115,53 +109,56 @@ syntax cluster tjs2Top add=tjs2Function
 
 if version >= 508 || !exists("did_tjs2_syn_inits")
   if version < 508
-    let did_tjs2_syn_inits = 1
+    let did_kag3_syn_inits = 1
+    command -nargs=+ HiLink hi link <args>
+  else
+    command -nargs=+ HiLink hi def link <args>
   endif
 
-  TJS2HiLink tjs2EndColons          Operator
-  TJS2HiLink tjs2OpSymbols          Operator
-  TJS2HiLink tjs2LogicSymbols       Boolean
-  TJS2HiLink tjs2Braces             Function
-  TJS2HiLink tjs2Parens             Operator
+  HiLink tjs2EndColons          Operator
+  HiLink tjs2OpSymbols          Operator
+  HiLink tjs2LogicSymbols       Boolean
+  HiLink tjs2Braces             Function
+  HiLink tjs2Parens             Operator
 
-  TJS2HiLink tjs2Function           Function
-  TJS2HiLink tjs2Conditional        Conditional
-  TJS2HiLink tjs2Repeat             Repeat
-  TJS2HiLink tjs2Boolean            Boolean
-  TJS2HiLink tjs2Constant           Constant
-  TJS2HiLink tjs2Identifier         Identifier
-  TJS2HiLink tjs2Operator           Operator
-  TJS2HiLink tjs2Type               Type
-  TJS2HiLink tjs2Statement          Statement
-  TJS2HiLink tjs2Exceptions         Exception
-  TJS2HiLink tjs2Label              Label
-  TJS2HiLink tjs2ClassDecl          StorageClass
-  TJS2HiLink tjs2Branch             Conditional
-  TJS2HiLink tjs2VarArg             Function
-  TJS2HiLink tjs2Property           Structure
-  TJS2HiLink tjs2PropDecl           StorageClass
-  TJS2HiLink tjs2Reserved           Error
-  TJS2HiLink tjs2Comment            Comment
-  TJS2HiLink tjs2LineComment        Comment
-  TJS2HiLink tjs2SpecialChar        SpecialChar
-  TJS2HiLink tjs2StringD            String
-  TJS2HiLink tjs2StringS            String
-  TJS2HiLink tjs2SpecialChar2       SpecialChar
-  TJS2HiLink tjs2EvaluableString    SpecialChar
-  TJS2HiLink tjs2StringAtD          String
-  TJS2HiLink tjs2StringS            String
-  TJS2HiLink tjs2OctetNumber        Number
-  TJS2HiLink tjs2Octet              SpecialChar
-  TJS2HiLink tjs2Number             Number
-  TJS2HiLink tjs2RegExp             String
-  TJS2HiLink tjs2GlobalObjects      Special
-  TJS2HiLink tjs2ParensError        Error
-  TJS2HiLink tjs2ParensErrA         Error
-  TJS2HiLink tjs2ParensErrB         Error
-  TJS2HiLink tjs2ParensErrC         Error
+  HiLink tjs2Function           Function
+  HiLink tjs2Conditional        Conditional
+  HiLink tjs2Repeat             Repeat
+  HiLink tjs2Boolean            Boolean
+  HiLink tjs2Constant           Constant
+  HiLink tjs2Identifier         Identifier
+  HiLink tjs2Operator           Operator
+  HiLink tjs2Type               Type
+  HiLink tjs2Statement          Statement
+  HiLink tjs2Exceptions         Exception
+  HiLink tjs2Label              Label
+  HiLink tjs2ClassDecl          StorageClass
+  HiLink tjs2Branch             Conditional
+  HiLink tjs2VarArg             Function
+  HiLink tjs2Property           Structure
+  HiLink tjs2PropDecl           StorageClass
+  HiLink tjs2Reserved           Error
+  HiLink tjs2Comment            Comment
+  HiLink tjs2LineComment        Comment
+  HiLink tjs2SpecialChar        SpecialChar
+  HiLink tjs2StringD            String
+  HiLink tjs2StringS            String
+  HiLink tjs2SpecialChar2       SpecialChar
+  HiLink tjs2EvaluableString    SpecialChar
+  HiLink tjs2StringAtD          String
+  HiLink tjs2StringS            String
+  HiLink tjs2OctetNumber        Number
+  HiLink tjs2Octet              SpecialChar
+  HiLink tjs2Number             Number
+  HiLink tjs2RegExp             String
+  HiLink tjs2GlobalObjects      Special
+  HiLink tjs2ParensError        Error
+  HiLink tjs2ParensErrA         Error
+  HiLink tjs2ParensErrB         Error
+  HiLink tjs2ParensErrC         Error
+
+  delcommand HiLink
 endif
-
-delcommand TJS2HiLink
 
 let b:current_syntax = "tjs2"
 if main_syntax == 'tjs2'
